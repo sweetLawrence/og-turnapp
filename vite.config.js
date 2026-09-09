@@ -5,20 +5,25 @@ import path from 'path'
 export default defineConfig({
   server: {
     host: true,
-    allowedHosts: true
+    allowedHosts: true,
+    hmr: {
+      overlay: false,  // Disable the overlay for cleaner errors
+    },
   },
   plugins: [
     react(),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
-    }
+      '@': path.resolve(__dirname, './src'),
+      // 🆕 Add alias for react-is
+      'react-is': path.resolve(__dirname, 'node_modules/react-is/index.js'),
+    },
   },
   build: {
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
-      external: ['react-is'],  // 🆕 Add this to fix the error
+      external: ['react-is'],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules/react') || 
@@ -33,9 +38,9 @@ export default defineConfig({
           if (id.includes('node_modules')) {
             return 'vendor'
           }
-        }
-      }
-    }
+        },
+      },
+    },
   },
   optimizeDeps: {
     include: ['react-is', 'recharts'],
