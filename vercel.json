@@ -4,11 +4,6 @@
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "build": {
-    "rollupOptions": {
-      "external": ["react-is"]
-    }
-  },
   "rewrites": [
     {
       "source": "/health",
