@@ -5,11 +5,15 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/api/og/events/:identifier",
+      "destination": "/api/og/events/:identifier"
+    },
+    {
       "source": "/og/events/:identifier",
       "destination": "/api/og/events/:identifier"
     },
     {
-      "source": "/events/:identifier",
+      "source": "/:slug",
       "has": [
         {
           "type": "header",
@@ -17,10 +21,10 @@
           "value": "(?i).*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
         }
       ],
-      "destination": "/og/events/:identifier"
+      "destination": "/api/og/events/:slug"
     },
     {
-      "source": "/((?!api/|backend-api/|og/).*)",
+      "source": "/((?!api/|og/|backend-api/).*)",
       "destination": "/index.html"
     }
   ]
