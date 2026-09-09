@@ -1,0 +1,36 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "installCommand": "yarn install --production=false --frozen-lockfile",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/og/events/:identifier",
+      "destination": "/api/og/events/:identifier"
+    },
+    {
+      "source": "/events/:identifier",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
+        }
+      ],
+      "destination": "/og/events/:identifier"
+    },
+    {
+      "source": "/backend-api/:path*",
+      "destination": "https://api.turnapp.events/api/:path*"
+    },
+    {
+      "source": "/((?!api/|backend-api/|og/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

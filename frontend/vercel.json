@@ -1,0 +1,27 @@
+{
+  "rewrites": [
+    {
+      "source": "/health",
+      "destination": "/api/health"
+    },
+    {
+      "source": "/events/:id",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
+        }
+      ],
+      "destination": "https://api.turnapp.events/event/:id"
+    },
+    {
+      "source": "/backend-api/:path*",
+      "destination": "https://api.turnapp.events/api/:path*"
+    },
+    {
+      "source": "/((?!api/|backend-api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

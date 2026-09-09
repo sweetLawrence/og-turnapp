@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5e664b4c.css",
+    "main.js": "/static/js/main.cf28e35d.js",
+    "static/media/GameOfSquids.ttf": "/static/media/GameOfSquids.e0727d0bce17b79e412d.ttf",
+    "index.html": "/index.html",
+    "main.5e664b4c.css.map": "/static/css/main.5e664b4c.css.map",
+    "main.cf28e35d.js.map": "/static/js/main.cf28e35d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e664b4c.css",
+    "static/js/main.cf28e35d.js"
+  ]
+}
