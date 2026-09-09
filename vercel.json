@@ -1,14 +1,9 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "installCommand": "npm install",
+  "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    {
-      "source": "/health",
-      "destination": "/api/health"
-    },
     {
       "source": "/og/events/:identifier",
       "destination": "/api/og/events/:identifier"
@@ -23,10 +18,6 @@
         }
       ],
       "destination": "/og/events/:identifier"
-    },
-    {
-      "source": "/backend-api/:path*",
-      "destination": "https://api.turnapp.events/api/:path*"
     },
     {
       "source": "/((?!api/|backend-api/|og/).*)",

@@ -1,14 +1,5 @@
 // api/og/events/[identifier].js
 
-/**
- * Serverless function to generate Open Graph tags for social media crawlers
- * This ensures WhatsApp, Facebook, Twitter, etc. get proper previews
- * 
- * Path: /api/og/events/:identifier
- * Example: /api/og/events/sunset-frequency
- *          /api/og/events/10932b70-9643-11f1-a752-c169c6c8d361
- */
-
 export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -47,7 +38,7 @@ export default async function handler(req, res) {
 
     const event = data.data;
 
-    // Build the image URL (use event image or fallback)
+    // Build the image URL
     const imageUrl = event.poster_url || 
                      (event.images && event.images.length > 0 ? event.images[0] : null) ||
                      'https://turnapp.events/og-image.jpg';
@@ -57,13 +48,23 @@ export default async function handler(req, res) {
                              event.description?.replace(/<[^>]*>/g, '').substring(0, 150) || 
                              'Check out this amazing event on TurnApp!').trim();
 
-    // Build the share URL (use slug, fallback to uuid, then id)
+    // Build the share URL
     const shareIdentifier = event.slug || event.uuid || event.id;
-    const shareUrl = `${process.env.APP_URL || 'https://turnapp.events'}/events/${shareIdentifier}`;
+    const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'https://turnapp.events'}/${shareIdentifier}`;
 
-    // Build the HTML with OG tags
-    const html = `
-<!DOCTYPE html>
+    // Escape HTML to prevent XSS
+    const escapeHtml = (text) => {
+      if (!text) return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    };
+
+    // Generate HTML with OG tags
+    const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -107,45 +108,50 @@ export default async function handler(req, res) {
             "address": "${escapeHtml(event.location || '')}"
         },
         "image": "${escapeHtml(imageUrl)}",
-        "url": "${escapeHtml(shareUrl)}",
-        "organizer": {
-            "@type": "Organization",
-            "name": "${escapeHtml(event.owner || 'TurnApp')}"
-        }
+        "url": "${escapeHtml(shareUrl)}"
     }
     </script>
     
     <!-- Redirect to React SPA after crawler reads tags -->
-    <meta http-equiv="refresh" content="0; url=${escapeHtml(shareUrl)}" />
+    <meta http-equiv="refresh" content="2; url=${escapeHtml(shareUrl)}" />
     
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            margin: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #0a0a0a;
             color: white;
+            padding: 20px;
         }
         .preview-card {
             max-width: 420px;
+            width: 100%;
             background: #1a1a1a;
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid #2a2a2a;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
         }
-        .preview-card img {
+        .preview-card .image-container {
             width: 100%;
             height: 240px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .preview-card .image-container img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
         }
-        .preview-content {
-            padding: 20px;
-        }
+        .preview-content { padding: 20px; }
         .preview-badge {
             display: inline-block;
             background: #2a2a2a;
@@ -170,10 +176,9 @@ export default async function handler(req, res) {
         .preview-meta {
             font-size: 13px;
             color: #666;
-        }
-        .preview-meta span {
-            display: inline-block;
-            margin-right: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
         }
         .redirect-note {
             text-align: center;
@@ -181,55 +186,48 @@ export default async function handler(req, res) {
             font-size: 13px;
             margin-top: 16px;
         }
-        .loading {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            color: #444;
+        .brand {
+            text-align: center;
+            color: #333;
+            font-size: 12px;
+            margin-top: 12px;
+            letter-spacing: 2px;
         }
-        .loading .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #1a1a1a;
-            border-top-color: #DC143C;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+        .brand span { color: #DC143C; }
     </style>
 </head>
 <body>
     <div class="preview-card">
-        ${event.images && event.images.length > 0 ? 
-            `<img src="${escapeHtml(event.images[0])}" alt="${escapeHtml(event.title)}" />` :
-            event.poster_url ? 
-            `<img src="${escapeHtml(event.poster_url)}" alt="${escapeHtml(event.title)}" />` :
-            `<div style="height:240px;background:linear-gradient(135deg,#1a1a2e,#16213e);display:flex;align-items:center;justify-content:center;color:#444;font-size:14px;">No Image Available</div>`
-        }
+        <div class="image-container">
+            ${event.images && event.images.length > 0 ? 
+                `<img src="${escapeHtml(event.images[0])}" alt="${escapeHtml(event.title)}" />` :
+                event.poster_url ? 
+                `<img src="${escapeHtml(event.poster_url)}" alt="${escapeHtml(event.title)}" />` :
+                `<div style="color:#444;font-size:14px;text-align:center;">
+                    <div style="font-size:48px;margin-bottom:8px;">🎟️</div>
+                    <div>${escapeHtml(event.title)}</div>
+                </div>`
+            }
+        </div>
         <div class="preview-content">
             <div class="preview-badge">📍 ${escapeHtml(event.location || event.venue || 'Location TBA')}</div>
             <div class="preview-title">${escapeHtml(event.title)}</div>
             <div class="preview-desc">${escapeHtml(cleanDescription)}</div>
             <div class="preview-meta">
-                <span>📅 ${event.from ? new Date(event.from).toLocaleDateString('en-KE', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}</span>
+                ${event.from ? `<span>📅 ${new Date(event.from).toLocaleDateString('en-KE', { month: 'short', day: 'numeric', year: 'numeric' })}</span>` : ''}
                 ${event.from_time ? `<span>🕐 ${event.from_time.substring(0, 5)}</span>` : ''}
             </div>
         </div>
     </div>
-    <div class="redirect-note">Redirecting to event page...</div>
-    
+    <div class="redirect-note">Loading event...</div>
+    <div class="brand">Turn<span>App</span></div>
     <script>
-        // Redirect after 3 seconds (fallback if meta refresh doesn't work)
         setTimeout(function() {
             window.location.href = "${escapeHtml(shareUrl)}";
         }, 3000);
     </script>
 </body>
-</html>
-    `;
+</html>`;
 
     // Return the HTML
     res.setHeader('Content-Type', 'text/html');
@@ -239,14 +237,4 @@ export default async function handler(req, res) {
     console.error('OG Generation Error:', error);
     res.status(500).send('Internal Server Error');
   }
-}
-
-/**
- * Escape HTML to prevent XSS
- */
-function escapeHtml(text) {
-  if (!text) return '';
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
 }
