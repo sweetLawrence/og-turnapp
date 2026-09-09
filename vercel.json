@@ -6,11 +6,11 @@
   "rewrites": [
     {
       "source": "/api/og/events/:identifier",
-      "destination": "/api/og/events/:identifier"
+      "destination": "https://api.turnapp.events/api/og/events/:identifier"
     },
     {
       "source": "/og/events/:identifier",
-      "destination": "/api/og/events/:identifier"
+      "destination": "https://api.turnapp.events/api/og/events/:identifier"
     },
     {
       "source": "/:slug",
@@ -18,10 +18,10 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
+          "value": ".*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|[Bb]ingbot|Applebot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
         }
       ],
-      "destination": "/api/og/events/:slug"
+      "destination": "https://api.turnapp.events/api/og/events/:slug"
     },
     {
       "source": "/((?!api/|og/|backend-api/).*)",
