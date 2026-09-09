@@ -1,0 +1,1074 @@
+og preview links hoppefully fixed
+
+
+---
+
+clean link share/og preview -test 1
+
+
+---
+
+clean link share
+
+
+---
+
+clean link share
+
+
+---
+
+feat: redesign event details page with glassmorphism hero and responsive carousel
+
+
+---
+
+fix: dynamic past/upcoming event filtering for organizer profile
+
+
+---
+
+feat: redesign event details page with glassmorphism hero and responsive carousel
+
+
+---
+
+feat: add backward compatibility redirects for old event URLs
+
+- Redirect /events/:identifier to /:identifier (supports slugs, UUIDs, and IDs)
+- Redirect /event/:id to /:id for legacy links
+- Maintains compatibility with all existing shared event links
+
+---
+
+fix: update EventCard navigation to root-level event routes
+
+- Change event URL from /events/:slug to /:slug
+- Remove /events prefix from event detail navigation
+
+---
+
+feat(frontend): add notifications page and custom 404
+
+- Add NotificationsPage with category filtering, read/unread, delete, mark-all-read
+- Add notificationApi service with all CRUD operations
+- Add custom 404 Not Found page
+- Update routes for /dashboard/notifications and /affiliate/notifications
+
+---
+
+too lazy to set up linter, manually deleted a few unused variable to reduce bundle size upon build note to self: migrate project to typescript in the future
+
+
+---
+
+feat: Replace featured buttons with CustomToggle and optimistic UI
+
+- Add CustomToggle component (badge style, no slider)
+- Implement optimistic UI update for instant toggle feedback
+- Remove full page refresh on featured toggle
+- Add tooltip with action description on hover
+- Add loading state and error rollback
+
+---
+
+feat: Add ticket sale controls UI and status display
+
+- Add Sales Status toggle (Available/Sales Closed) to TicketCard
+- Add Sale Start/End date pickers to TicketCard
+- Display ticket status badges in EventDetails page
+- Disable quantity selector when ticket is unavailable
+- Load and save sale control fields in create/edit event
+
+Features:
+- Organizers can manage sale status per ticket type
+- Visitors see accurate ticket availability status
+- "Sales Closed", "Coming Soon", "Sales Ended" badges
+- Responsive date/time pickers for sale period
+
+---
+
+feat: Add cover image support for dashboard event cards
+
+- Display cover image in EventPosterCard and EventListRow
+- Fix image URL construction to strip /api from base URL
+- Add fallback to default image when no cover set
+
+---
+
+feat: improve share event accessibility with header button and mobile FAB
+
+
+---
+
+little fex
+
+
+---
+
+feat: implement full event discovery and management UI
+
+- Add event listing with filters, search, and pagination
+- Integrate remote experiences with local events
+- Add featured and upcoming event sections
+- Implement unified event detail view with tickets
+- Add event creation form with multi-image upload
+- Implement event editing with ticket CRUD
+- Include date/time pickers and responsive cards
+
+---
+
+feat: Enhance organizer profile with cover image, location, and stats
+
+- Add cover image hero section and stats cards to public profile
+- Add avatar/cover upload and location field to dashboard
+- Add "View Public Profile" button
+- Make profile fully responsive
+
+---
+
+feat: use Google Maps for event locations
+
+- Display coordinate-based locations using Google Maps
+- Improve coordinate validation with Number.isFinite()
+
+---
+
+fix/updating config options
+
+
+---
+
+fix/updating event details page
+
+
+---
+
+Merge pull request #3 from gichuhibrian/logger/instagram-web-view-error
+
+added logger file
+---
+
+added logger file
+
+
+---
+
+Logger Added
+
+
+---
+
+feat: order page update to show card details
+
+
+---
+
+updating vercel
+
+
+---
+
+vercel update
+
+
+---
+
+prod grade
+
+
+---
+
+merging with migrate-cra-to-vite
+
+
+---
+
+updating the event details page
+
+
+---
+
+instagram fix update
+
+
+---
+
+production health endpoint
+
+
+---
+
+event details page
+
+
+---
+
+fix: sorting instagram link issue
+
+
+---
+
+event details page update
+
+
+---
+
+fix:update show event page
+
+
+---
+
+updating the edit event page
+
+
+---
+
+adding mainteinance mode
+
+
+---
+
+updatin ghte offline image
+
+
+---
+
+removing whatsapp button
+
+
+---
+
+updating the event details page
+
+
+---
+
+code
+
+
+---
+
+fix(events): add debounced search and case-insensitive filtering
+
+- Debounce search input to prevent excessive API calls
+- Remove full-page spinner during search
+- Add subtle loading indicator and preserve UI interaction
+- Implement case-insensitive search matching
+- Add clear button and search results counter
+
+---
+
+fix: parse string coordinates to float for map embed
+
+
+---
+
+fix: parse string coordinates to float for map embed
+
+
+---
+
+New Readme.md file
+
+
+---
+
+fix: prevent event description overflow and improve text wrapping
+
+
+---
+
+fix(event-details): sanitize rich text whitespace to restore natural word wrapping -v2
+
+
+---
+
+fix(event-details): sanitize rich text whitespace to restore natural word wrapping -v2
+
+
+---
+
+fix(event-details): sanitize rich text whitespace to restore natural word wrapping
+
+
+---
+
+finished cra to vite migration
+
+
+---
+
+code
+
+
+---
+
+code
+
+
+---
+
+minor fixes
+
+
+---
+
+added Logo
+
+
+---
+
+Migrate project from CRA to Vite
+
+
+---
+
+landing page
+
+
+---
+
+manual payment verification
+
+
+---
+
+Merge branch 'main' of https://github.com/gichuhibrian/turnapp-react
+
+
+---
+
+events page update
+
+
+---
+
+updating share event
+
+
+---
+
+feat: replace numeric sale ID with alphanumeric order reference (TN-XXXXXXXX)
+
+- Generate unguessable TN-XXXXXXXX tokens (31^8 combos, no ambiguous chars 0/O/I/L/1)
+- Use sale_token from API response instead of numeric sale_id for all navigation
+- Show Order Reference (token) on success and manual payment pages
+- Download tickets by UUID instead of sequential numeric ticket ID
+- Preserve backward compat: old numeric IDs still resolve for existing tickets
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+
+---
+
+feat: update wallet UI for new fee structure
+
+Show KES 150 transaction fee breakdown in withdrawal form
+Dynamic min amount (KES 100 legacy / KES 500 new events)
+Add LEGACY badge on pre-existing event cards
+Update pending balance subtext to 24-hour window
+Show processing_fee breakdown in admin withdrawal details
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+
+---
+
+sold tickets page filter
+
+
+---
+
+Update CheckoutPage.jsx
+
+
+---
+
+Update EventCard.jsx
+
+
+---
+
+Update App.js
+
+
+---
+
+Update CheckoutPage.jsx
+
+
+---
+
+affiliate flow
+
+
+---
+
+affiliate registration page and flow
+
+
+---
+
+affiliates management
+
+
+---
+
+Update SoldTicketsPage.jsx
+
+
+---
+
+updating the landing page
+
+
+---
+
+updating the checkout page
+
+
+---
+
+updating share event
+
+
+---
+
+Update EventDetailsPage.jsx
+
+
+---
+
+Update EventDetailsPage.jsx
+
+
+---
+
+sharing details
+
+
+---
+
+Updating event details page and auth pages
+
+
+---
+
+updating the landing page and the event details page
+
+
+---
+
+updating picking and showing of columns
+
+
+---
+
+updating the landing page
+
+
+---
+
+updating landing page
+
+
+---
+
+event management page
+
+
+---
+
+updating orders and landing page
+
+
+---
+
+Update DashboardPage to remove growth in stats
+
+
+---
+
+showing sold out in edit event
+
+
+---
+
+updating the event details page
+
+
+---
+
+updating sold out sectin
+
+
+---
+
+adding solf out functionality
+
+
+---
+
+updating location section
+
+
+---
+
+udpating maps section
+
+
+---
+
+updating maps section
+
+
+---
+
+updating event details page
+
+
+---
+
+updating event highlights size
+
+
+---
+
+updating organizer card and event details page
+
+
+---
+
+updating event details page
+
+
+---
+
+updating carousel to direct to clicked event
+
+
+---
+
+fixing image carousel
+
+
+---
+
+updating EventDetailsPage
+
+
+---
+
+removing loading, adding bullets and reducing width of pills
+
+
+---
+
+read more and read less in event details
+
+
+---
+
+read more and read less in event details
+
+
+---
+
+updating featured events viewing
+
+
+---
+
+discussed changes concerning event details page mainly
+
+
+---
+
+updating the landing page
+
+
+---
+
+updating the navbar
+
+
+---
+
+updating navbar and and landing page
+
+
+---
+
+circular belt in the desktop view
+
+
+---
+
+updating features carousel desktop
+
+
+---
+
+fixing the slideshow belt
+
+
+---
+
+cleaning up the landing page
+
+
+---
+
+updating event card to show promotional price
+
+
+---
+
+updating event card to show promotional price
+
+
+---
+
+making featured a carousel
+
+
+---
+
+updating based on requirements
+
+
+---
+
+updating sold tickets and orders page
+
+
+---
+
+adding transformative details
+
+
+---
+
+updating edit event page
+
+
+---
+
+success and event details page
+
+
+---
+
+updating size of the success page
+
+
+---
+
+updating the success page layout
+
+
+---
+
+updating the checkout page
+
+
+---
+
+updating the checkout page
+
+
+---
+
+updating checkout page to have card payments
+
+
+---
+
+updated the login register and checkout pages
+
+
+---
+
+updating api url
+
+
+---
+
+updating the wallet module
+
+
+---
+
+updating the checkout page
+
+
+---
+
+updating the wallet and customer page
+
+
+---
+
+updating promocode and complimentary tickets
+
+
+---
+
+updating complimentary tickets
+
+
+---
+
+updating ticket type size
+
+
+---
+
+cleaning up the sold tickets page
+
+
+---
+
+cleaning up the orders page
+
+
+---
+
+updating the orders page
+
+
+---
+
+quick fixes to events and order pages
+
+
+---
+
+adding dashboard filter
+
+
+---
+
+updating dashboard overview
+
+
+---
+
+updating the dashboard layout to be sticky
+
+
+---
+
+wallet page
+
+
+---
+
+complimentary and customers pages
+
+
+---
+
+orders and sold tickets page
+
+
+---
+
+adding the promotions, orders and affiliate pages
+
+
+---
+
+updating dashboard and event managment ui
+
+
+---
+
+edit event page
+
+
+---
+
+create event page
+
+
+---
+
+dashboard and create event pages
+
+
+---
+
+updating the manual payment
+
+
+---
+
+updating success or tickets page
+
+
+---
+
+streamline the confirmation of terms part
+
+
+---
+
+updating the payment section in checkout
+
+
+---
+
+Adding responsiveness in checkout
+
+
+---
+
+updating checkout page to remove borders
+
+
+---
+
+checkout page ui updates
+
+
+---
+
+final updates to event details page
+
+
+---
+
+updating alignment in organizer card
+
+
+---
+
+updating event card font size
+
+
+---
+
+Updating Organizer card
+
+
+---
+
+updating the checkout page
+
+
+---
+
+updating organizer card
+
+
+---
+
+udpating the event details page
+
+
+---
+
+updating the event details page
+
+
+---
+
+updating event details page
+
+
+---
+
+updating font sizes
+
+
+---
+
+updating landing and events page
+
+
+---
+
+updating hero section
+
+
+---
+
+updates to hero section
+
+
+---
+
+update the hero section
+
+
+---
+
+latest updates
+
+
+---
+
+updating filters in events page
+
+
+---
+
+optimizing ui components
+
+
+---
+
+updating the hero buttons
+
+
+---
+
+update event share
+
+
+---
+
+updating footer
+
+
+---
+
+updating design of both the home and the event details page
+
+
+---
+
+updating yarn version
+
+
+---
+
+updating package version
+
+
+---
+
+consuming endpoints
+
+
+---
+
+removing emergent logo
+
+
+---
+
+Removing emergent tag
+
+
+---
+
+updating package file
+
+
+---
+
+Auto-generated changes
+
+
+---
+
+auto-commit for 0137a74a-4c33-4dae-8ec9-76b663b0c579
+
+
+---
+
+auto-commit for 2818cf19-c2e6-430f-a3c1-3d24ea052e87
+
+
+---
+
+auto-commit for 31174a9c-3aa3-428f-9c8e-b3528c233f4e
+
+
+---
+
+auto-commit for 4e752621-2eb8-43e1-86b0-081d15926351
+
+
+---
+
+auto-commit for b86bcf12-0100-4cfe-8446-232abf1d4ab6
+
+
+---
+
+auto-commit for c8855429-9540-4502-b437-922c65bab1bb
+
+
+---
+
+auto-commit for 04fbe85d-0609-49ea-82a9-7176d437eb46
+
+
+---
+
+Auto-commit before changes
+
+
+---
+
+auto-commit for c0949a01-d4ee-47ae-9320-b5935d6e3960
+
+
+---
+
+auto-commit for 0052f886-6f58-4e9b-9841-16b657b9a0a0
+
+
+---
+
+auto-commit for 2ed4a7bb-44fc-4edc-9fef-f5ed772068e6
+
+
+---
+
+auto-commit for c21b236c-a05e-4ce2-b9c6-9ca90a123126
+
+
+---
+
+auto-commit for 79ea2998-8d1f-448b-ac82-3d3de6a8fc05
+
+
+---
+
+auto-commit for abe1dd38-ad13-4686-abfc-c845d9768929
+
+
+---
+
+auto-commit for 8e25bda6-46c4-4b59-9df2-c3a8ff882967
+
+
+---
+
+auto-commit for c0d8caab-7644-4ad9-bd77-4c344ae76b17
+
+
+---
+
+Auto-commit before changes
+
+
+---
+
+auto-commit for 799850ad-b3eb-4aad-85d5-736c9b9c7008
+
+
+---
+
+auto-commit for e9403b33-5274-4133-804e-2dd5ad03ab15
+
+
+---
+
+Initial commit
+
+
+---

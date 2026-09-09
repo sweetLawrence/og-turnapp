@@ -49,7 +49,7 @@ import {
   DialogTitle
 } from '../components/ui/dialog'
 
-// 🆕 Import the Toggle component
+//    Import the Toggle component
 import { CustomToggle } from '../components/ui/CustomToggle'
 
 const ShowEventPage = () => {
@@ -62,7 +62,7 @@ const ShowEventPage = () => {
   const [analytics, setAnalytics] = useState(null)
   const [analyticsLoading, setAnalyticsLoading] = useState(false)
 
-  // 🆕 Share modal state
+  //    Share modal state
   const [shareModalOpen, setShareModalOpen] = useState(false)
   const [copied, setCopied] = useState(false)
 
@@ -77,13 +77,13 @@ const ShowEventPage = () => {
 
   const cleanDescriptionHtml = sanitizeDescriptionHtml(event?.description)
 
-  // 🆕 Get share URL (slug > uuid > id)
+  //    Get share URL (slug > uuid > id)
   const getShareUrl = () => {
     const shareIdentifier = event?.slug || event?.uuid || event?.id
-    return `${window.location.origin}/events/${shareIdentifier}`
+    return `${window.location.origin}/${shareIdentifier}`
   }
 
-  // 🆕 Get share text
+  //    Get share text
   const getShareText = () => {
     const cleanDescription = (
       event?.short_description ||
@@ -103,7 +103,7 @@ const ShowEventPage = () => {
     }\n\n🎟️ Get your tickets:`
   }
 
-  // 🆕 Copy link to clipboard
+  //    Copy link to clipboard
   const handleCopyLink = async () => {
     const url = getShareUrl()
     try {
@@ -117,7 +117,7 @@ const ShowEventPage = () => {
     }
   }
 
-  // 🆕 Share to specific platform
+  //    Share to specific platform
   const shareToPlatform = platform => {
     const url = getShareUrl()
     const text = getShareText()
@@ -150,13 +150,13 @@ const ShowEventPage = () => {
     }
   }
 
-  // 🆕 Toggle share modal
+  //    Toggle share modal
   const toggleShareModal = () => {
     setShareModalOpen(!shareModalOpen)
     setCopied(false)
   }
 
-  // 🆕 Handle share button click
+  //    Handle share button click
   const handleShare = () => {
     if (navigator.share) {
       navigator
@@ -1039,7 +1039,7 @@ const handleToggleFeatured = async () => {
         </div>
       </DashboardLayout>
 
-      {/* 🆕 SHARE MODAL */}
+      {/*    SHARE MODAL */}
       {shareModalOpen && (
         <div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200'>
           <div className='relative bg-zinc-900 rounded-2xl max-w-md w-full p-6 border border-white/10 shadow-2xl animate-in zoom-in-95 duration-200'>

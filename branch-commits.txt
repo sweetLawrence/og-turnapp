@@ -1,0 +1,203 @@
+b0a9965 og preview links hoppefully fixed
+252653f clean link share/og preview -test 1
+ecf351b clean link share
+534672b clean link share
+5c3f636 feat: redesign event details page with glassmorphism hero and responsive carousel
+0937548 fix: dynamic past/upcoming event filtering for organizer profile
+8f524f6 feat: redesign event details page with glassmorphism hero and responsive carousel
+2fdd836 feat: add backward compatibility redirects for old event URLs
+bb133c9 fix: update EventCard navigation to root-level event routes
+ba52684 feat(frontend): add notifications page and custom 404
+bc6be10 too lazy to set up linter, manually deleted a few unused variable to reduce bundle size upon build note to self: migrate project to typescript in the future
+d0eb483 feat: Replace featured buttons with CustomToggle and optimistic UI
+8f3c534 feat: Add ticket sale controls UI and status display
+7bf38a9 feat: Add cover image support for dashboard event cards
+237154e feat: improve share event accessibility with header button and mobile FAB
+ec8d76d little fex
+e36b246 feat: implement full event discovery and management UI
+4c4c93e feat: Enhance organizer profile with cover image, location, and stats
+b1ccf2c feat: use Google Maps for event locations
+96df62b fix/updating config options
+1b3377b fix/updating event details page
+37c222c Merge pull request #3 from gichuhibrian/logger/instagram-web-view-error
+aa43228 added logger file
+20826c4 Logger Added
+6d4edae feat: order page update to show card details
+ea52091 updating vercel
+c68bae5 vercel update
+a9eab73 prod grade
+297e314 merging with migrate-cra-to-vite
+9531965 updating the event details page
+f8d3edc instagram fix update
+4ba7730 production health endpoint
+6c6a36c event details page
+b96eddc fix: sorting instagram link issue
+a271a74 event details page update
+705790e fix:update show event page
+aa458ac updating the edit event page
+dc4cd6e adding mainteinance mode
+96c0694 updatin ghte offline image
+f717b18 removing whatsapp button
+3e06e1c updating the event details page
+a90079d code
+3db5804 fix(events): add debounced search and case-insensitive filtering
+653e1f6 fix: parse string coordinates to float for map embed
+a3e0e03 fix: parse string coordinates to float for map embed
+e163b12 New Readme.md file
+6f5d20e fix: prevent event description overflow and improve text wrapping
+fc008f4 fix(event-details): sanitize rich text whitespace to restore natural word wrapping -v2
+fda6d7c fix(event-details): sanitize rich text whitespace to restore natural word wrapping -v2
+4553a91 fix(event-details): sanitize rich text whitespace to restore natural word wrapping
+b8d241a finished cra to vite migration
+ae577db code
+ea41aa3 code
+b9c89bd minor fixes
+c81110d added Logo
+638e2d7 Migrate project from CRA to Vite
+a6acfdb landing page
+20c68bd manual payment verification
+bbf897b Merge branch 'main' of https://github.com/gichuhibrian/turnapp-react
+7a001b3 events page update
+0b2f568 updating share event
+990013c feat: replace numeric sale ID with alphanumeric order reference (TN-XXXXXXXX)
+d7f9726 feat: update wallet UI for new fee structure
+1b6d694 sold tickets page filter
+eb67b00 Update CheckoutPage.jsx
+1b8a201 Update EventCard.jsx
+c4b17af Update App.js
+7118bf5 Update CheckoutPage.jsx
+02ff0f4 affiliate flow
+6bbb270 affiliate registration page and flow
+bc59646 affiliates management
+3e432b2 Update SoldTicketsPage.jsx
+329e499 updating the landing page
+326538a updating the checkout page
+c7f29bc updating share event
+31456d5 Update EventDetailsPage.jsx
+3ac8c62 Update EventDetailsPage.jsx
+2af5825 sharing details
+2306164 Updating event details page and auth pages
+70f946b updating the landing page and the event details page
+86a090e updating picking and showing of columns
+4ef2012 updating the landing page
+ea3d0d6 updating landing page
+ab3d23c event management page
+61c12f8 updating orders and landing page
+e1a1038 Update DashboardPage to remove growth in stats
+b88bae3 showing sold out in edit event
+8a02f47 updating the event details page
+aedf114 updating sold out sectin
+2836b5a adding solf out functionality
+67dede3 updating location section
+842e801 udpating maps section
+c2cfbcc updating maps section
+f41a65e updating event details page
+ee390b8 updating event highlights size
+683f369 updating organizer card and event details page
+535e1c3 updating event details page
+198fec1 updating carousel to direct to clicked event
+c8eccb2 fixing image carousel
+257d8d1 updating EventDetailsPage
+c5c6c0a removing loading, adding bullets and reducing width of pills
+4506e4a read more and read less in event details
+4457bd4 read more and read less in event details
+2280dd4 updating featured events viewing
+68f1cad discussed changes concerning event details page mainly
+8abd9d8 updating the landing page
+7431db6 updating the navbar
+ff9b4eb updating navbar and and landing page
+b233241 circular belt in the desktop view
+553922c updating features carousel desktop
+399110c fixing the slideshow belt
+55c5f16 cleaning up the landing page
+8b9f2e8 updating event card to show promotional price
+b6342f1 updating event card to show promotional price
+d64eb49 making featured a carousel
+de22217 updating based on requirements
+8b032e0 updating sold tickets and orders page
+a333683 adding transformative details
+68d1dc9 updating edit event page
+7cdf2b6 success and event details page
+8892754 updating size of the success page
+ed15e9c updating the success page layout
+20b5f1d updating the checkout page
+f845453 updating the checkout page
+db6e4e3 updating checkout page to have card payments
+bb1599d updated the login register and checkout pages
+0ad69b9 updating api url
+134f5bf updating the wallet module
+3708b47 updating the checkout page
+ebf6519 updating the wallet and customer page
+21dfbec updating promocode and complimentary tickets
+0d10022 updating complimentary tickets
+1c2a731 updating ticket type size
+91fb0dc cleaning up the sold tickets page
+4516a02 cleaning up the orders page
+2a91bb4 updating the orders page
+e43fba9 quick fixes to events and order pages
+3f4a48b adding dashboard filter
+9a5fb7c updating dashboard overview
+cf6e11c updating the dashboard layout to be sticky
+3adf7fd wallet page
+3968aa0 complimentary and customers pages
+07525b5 orders and sold tickets page
+0387cab adding the promotions, orders and affiliate pages
+3a520cd updating dashboard and event managment ui
+8e5af88 edit event page
+4ceffc9 create event page
+9cc8d8c dashboard and create event pages
+89825ef updating the manual payment
+6b1d425 updating success or tickets page
+7626e34 streamline the confirmation of terms part
+722e50f updating the payment section in checkout
+f64ae54 Adding responsiveness in checkout
+f49650b updating checkout page to remove borders
+25e5b1d checkout page ui updates
+e631334 final updates to event details page
+9143676 updating alignment in organizer card
+10cc000 updating event card font size
+57dfca4 Updating Organizer card
+953f33d updating the checkout page
+cf8454b updating organizer card
+f41c628 udpating the event details page
+29cf086 updating the event details page
+387be2d updating event details page
+bf13a95 updating font sizes
+fe3db97 updating landing and events page
+52b8a15 updating hero section
+5928fc0 updates to hero section
+2a746be update the hero section
+6bc3e8c latest updates
+8be7052 updating filters in events page
+56e049c optimizing ui components
+afe04a4 updating the hero buttons
+3122afc update event share
+5d8827f updating footer
+db76984 updating design of both the home and the event details page
+e197ab3 updating yarn version
+473e5c8 updating package version
+c78f4e2 consuming endpoints
+db5ccff removing emergent logo
+17e1691 Removing emergent tag
+9d9c8a3 updating package file
+56ba136 Auto-generated changes
+365ca6b auto-commit for 0137a74a-4c33-4dae-8ec9-76b663b0c579
+243341a auto-commit for 2818cf19-c2e6-430f-a3c1-3d24ea052e87
+13288ba auto-commit for 31174a9c-3aa3-428f-9c8e-b3528c233f4e
+de8affe auto-commit for 4e752621-2eb8-43e1-86b0-081d15926351
+a0b59fa auto-commit for b86bcf12-0100-4cfe-8446-232abf1d4ab6
+46eb255 auto-commit for c8855429-9540-4502-b437-922c65bab1bb
+c6b046b auto-commit for 04fbe85d-0609-49ea-82a9-7176d437eb46
+12ddba0 Auto-commit before changes
+961c9fc auto-commit for c0949a01-d4ee-47ae-9320-b5935d6e3960
+eac8799 auto-commit for 0052f886-6f58-4e9b-9841-16b657b9a0a0
+2cbcf18 auto-commit for 2ed4a7bb-44fc-4edc-9fef-f5ed772068e6
+55faa91 auto-commit for c21b236c-a05e-4ce2-b9c6-9ca90a123126
+dea8a44 auto-commit for 79ea2998-8d1f-448b-ac82-3d3de6a8fc05
+ea24c18 auto-commit for abe1dd38-ad13-4686-abfc-c845d9768929
+f504f6b auto-commit for 8e25bda6-46c4-4b59-9df2-c3a8ff882967
+c6b42ee auto-commit for c0d8caab-7644-4ad9-bd77-4c344ae76b17
+69a0a44 Auto-commit before changes
+184ad15 auto-commit for 799850ad-b3eb-4aad-85d5-736c9b9c7008
+88bb15e auto-commit for e9403b33-5274-4133-804e-2dd5ad03ab15
+62a7188 Initial commit

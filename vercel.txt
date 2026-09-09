@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "yarn install --production=false --frozen-lockfile",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
@@ -11,7 +11,7 @@
     },
     {
       "source": "/og/events/:identifier",
-      "destination": "https://api.turnapp.events/api/og/events/:identifier"
+      "destination": "/api/og/events/:identifier"
     },
     {
       "source": "/events/:identifier",
@@ -22,7 +22,7 @@
           "value": "(?i).*(facebookexternalhit|Facebot|WhatsApp|Twitterbot|LinkedInBot|Slackbot|TelegramBot|Pinterest|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|vkShare|W3C_Validator|redditbot|Quora Link Preview|ia_archiver|Embedly|outbrain|Swiftbot).*"
         }
       ],
-      "destination": "https://api.turnapp.events/api/og/events/:identifier"
+      "destination": "/og/events/:identifier"
     },
     {
       "source": "/backend-api/:path*",
